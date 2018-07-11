@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Table, Button, Glyphicon } from "react-bootstrap";
 
-import type { Item } from '../../types'; 
+import type { Item } from '../../types';
 
 type Props = {
   items: Array<Item>,
@@ -26,13 +26,13 @@ const ItemList = (props: Props) => {
         </tr>
       </thead>
       {items.map(item =>
-        <tr key={item.num}>
-          <td onClick={handleOnClick(item.num)}>item.num</td>
-          <td onClick={handleOnClick(item.num)}>item.text</td>
-          <td onClick={handleOnClick(item.num)}>item.type</td>
-          <td onClick={handleOnClick(item.num)}>item.createdTimestamp</td>
+        <tr key={item.id}>
+          <td onClick={handleOnClick(item.id)}>item.num</td>
+          <td onClick={handleOnClick(item.id)}>item.text</td>
+          <td onClick={handleOnClick(item.id)}>item.type</td>
+          <td onClick={handleOnClick(item.id)}>item.createdTimestamp</td>
           <td>
-            <Button onclick={handleOnDeleteClick(item.num)}>
+            <Button onclick={handleOnDeleteClick(item.id)}>
               <Glyphicon glyph="remove" />
             </Button>
           </td>
