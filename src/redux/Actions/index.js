@@ -2,7 +2,6 @@
 
 import { ADD_ITEM, DELETE_ITEM } from "../../constants";
 import type {
-  Action,
   AddItemAction,
   DeleteItemAction,
   ItemType

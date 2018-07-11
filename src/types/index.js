@@ -15,3 +15,5 @@ export type Item = {
   +itemType: ItemType,
   +createdTimestamp: number
 };
+
+export type State = { +items: Array<Item> };

@@ -1,8 +1,6 @@
 // @flow
 
-import type { Item, Action } from "../../types";
-
-type State = { +items: Array<Item> };
+import type { Action, State } from "../../types";
 
 const initialState: State = {
   items: [

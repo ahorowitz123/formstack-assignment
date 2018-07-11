@@ -41,3 +41,5 @@ const ItemList = (props: Props) => {
     </Table>
   );
 };
+
+export default ItemList;
