@@ -3,12 +3,7 @@
 import * as React from "react";
 import { Table, Button, Glyphicon } from "react-bootstrap";
 
-type Item = {
-  num: number,
-  text: string,
-  type: "Multiple Choice" | "Dropdown" | "Text Box",
-  createdTimestamp: number
-};
+import type { Item } from '../../types'; 
 
 type Props = {
   items: Array<Item>,
