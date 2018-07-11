@@ -10,7 +10,7 @@ const mapStateToProps = (state: State): State => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleOnClick: id => alert("test"),
+  handleOnClick: id => {},
   handleOnDeleteClick: id => dispatch(deleteItem(id))
 });
 
