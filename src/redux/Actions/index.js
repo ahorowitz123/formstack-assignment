@@ -1,9 +1,10 @@
 // @flow
 
-import { ADD_ITEM, DELETE_ITEM, SORT } from "../../constants";
+import { ADD_ITEM, DELETE_ITEM, SELECT_ITEM, SORT } from "../../constants";
 import type {
   AddItemAction,
   DeleteItemAction,
+  SelectItemAction,
   SortAction,
   ItemType,
   SortType
@@ -21,6 +22,10 @@ export const deleteItem = (id: number): DeleteItemAction => ({
   type: DELETE_ITEM,
   id
 });
+export const selectItem = (id: number): SelectItemAction => ({
+  type: SELECT_ITEM,
+  id
+})
 export const sortList = (sortType: SortType): SortAction => ({
   type: SORT,
   sortType

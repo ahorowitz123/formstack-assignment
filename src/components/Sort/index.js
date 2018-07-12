@@ -9,23 +9,22 @@ type Props = {
 };
 
 const Sort = (props: Props) => {
-  const sortTypes = ["None", "Text", "Type", "Timestamp"];
+  const sortTypes: Array<SortType> = ["None", "Text", "Type", "Timestamp"];
   return (
     <DropdownButton id="dropdown-sort" title="Sort">
       {sortTypes.map((sort, index) => {
-          const active = (sort === "None");
-          return (
-            <MenuItem
-              key={index}
-              onSelect={() => props.handleOnSelect(sort)}
-              eventKey={index}
-              active={active}
-            >
-              {sort}
-            </MenuItem>
-          )
-        }
-      )}
+        const active = sort === "None";
+        return (
+          <MenuItem
+            key={index}
+            onSelect={() => props.handleOnSelect(sort)}
+            eventKey={index}
+            active={active}
+          >
+            {sort}
+          </MenuItem>
+        );
+      })}
     </DropdownButton>
   );
 };

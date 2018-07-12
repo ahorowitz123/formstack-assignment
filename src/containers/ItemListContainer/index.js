@@ -2,18 +2,21 @@
 import { connect } from "react-redux";
 
 import type { State } from "../../types";
-import { deleteItem } from "../../redux/Actions";
-import ItemList from '../../components/ItemList';
+import { deleteItem, selectItem } from "../../redux/Actions";
+import ItemList from "../../components/ItemList";
 
-const mapStateToProps = (state: State): State => ({
-  items: state.items
+const mapStateToProps = (state: State) => ({
+  items: state.items,
+  selectedId: state.selectedId
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleOnClick: id => {},
+  handleOnClick: id => dispatch(selectItem(id)),
   handleOnDeleteClick: id => dispatch(deleteItem(id))
 });
 
-const ItemListContainer = connect(mapStateToProps, mapDispatchToProps)(ItemList);
+const ItemListContainer = connect(mapStateToProps, mapDispatchToProps)(
+  ItemList
+);
 
 export default ItemListContainer;

@@ -7,6 +7,7 @@ import type { Item } from "../../types";
 
 type Props = {
   items: Array<Item>,
+  selectedId: number,
   handleOnClick: (itemNum: number) => void,
   handleOnDeleteClick: (itemNum: number) => void
 };
@@ -26,20 +27,27 @@ const ItemList = (props: Props) => {
         </tr>
       </thead>
       <tbody>
-        {items.map(item =>
-          <tr key={item.id}>
-            <td onClick={() => handleOnClick(item.id)}>{item.text}</td>
-            <td onClick={() => handleOnClick(item.id)}>{item.itemType}</td>
-            <td onClick={() => handleOnClick(item.id)}>
-              {item.createdTimestamp}
-            </td>
-            <td>
-              <Button onClick={() => handleOnDeleteClick(item.id)}>
-                <Glyphicon glyph="remove" />
-              </Button>
-            </td>
-          </tr>
-        )}
+        {items.map(item => {
+          const className = props.selectedId === item.id ? "selected" : "";
+          return (
+            <tr className={className} key={item.id}>
+              <td onClick={() => handleOnClick(item.id)}>
+                {item.text}
+              </td>
+              <td onClick={() => handleOnClick(item.id)}>
+                {item.itemType}
+              </td>
+              <td onClick={() => handleOnClick(item.id)}>
+                {item.createdTimestamp}
+              </td>
+              <td>
+                <Button onClick={() => handleOnDeleteClick(item.id)}>
+                  <Glyphicon glyph="remove" />
+                </Button>
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </Table>
   );

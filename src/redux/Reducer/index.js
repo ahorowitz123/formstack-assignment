@@ -22,7 +22,8 @@ const initialState: State = {
       itemType: "Text Box",
       createdTimestamp: 10
     }
-  ]
+  ],
+  selectedId: -1
 };
 
 const reducer = (state: State = initialState, action: Action): State => {
@@ -43,7 +44,12 @@ const reducer = (state: State = initialState, action: Action): State => {
     case "DELETE_ITEM":
       return {
         ...state,
-        items: state.items.filter(item => item.id !== action.id)
+        items: state.items.filter(item => (item.id !== action.id))
+      };
+    case "SELECT_ITEM":
+      return {
+        ...state,
+        selectedId: action.id
       };
     case "SORT":
       const sortType = action.sortType;
