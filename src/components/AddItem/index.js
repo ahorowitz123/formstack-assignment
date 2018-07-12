@@ -6,7 +6,8 @@ import {
   FormGroup,
   ControlLabel,
   FormControl,
-  Button
+  Button,
+  Glyphicon
 } from "react-bootstrap";
 
 import type { ItemType } from "../../types";
@@ -15,7 +16,7 @@ type Props = {
   handleOnClick: (text: string, type: ItemType) => void
 };
 
-const AddTodo = (props: Props) => {
+const AddItem = (props: Props) => {
   let text: HTMLInputElement;
   let type: HTMLSelectElement;
 
@@ -27,12 +28,13 @@ const AddTodo = (props: Props) => {
     } else {
       return "Text Box";
     }
-  }
+  };
 
   return (
     <Form inline>
       <FormGroup>
-        <ControlLabel>Text</ControlLabel>{" "}
+        <ControlLabel>Text</ControlLabel>
+        {"  "}
         <FormControl
           inputRef={ref => {
             text = ref;
@@ -56,15 +58,17 @@ const AddTodo = (props: Props) => {
         </FormControl>
       </FormGroup>{" "}
       <Button
+        bsStyle="primary"
         onClick={() => {
           props.handleOnClick(text.value, getType(type.value));
           text.value = "";
         }}
       >
-        Add Todo
+        <Glyphicon glyph="plus" />{" "}
+        Add Item
       </Button>
     </Form>
   );
 };
 
-export default AddTodo;
+export default AddItem;

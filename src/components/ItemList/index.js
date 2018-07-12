@@ -41,7 +41,10 @@ const ItemList = (props: Props) => {
                 {item.createdTimestamp}
               </td>
               <td>
-                <Button onClick={() => handleOnDeleteClick(item.id)}>
+                <Button
+                  bsStyle="danger"
+                  onClick={() => handleOnDeleteClick(item.id)}
+                >
                   <Glyphicon glyph="remove" />
                 </Button>
               </td>

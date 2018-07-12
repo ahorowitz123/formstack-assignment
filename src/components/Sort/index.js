@@ -11,7 +11,7 @@ type Props = {
 const Sort = (props: Props) => {
   const sortTypes: Array<SortType> = ["None", "Text", "Type", "Timestamp"];
   return (
-    <DropdownButton id="dropdown-sort" title="Sort">
+    <DropdownButton bsStyle="success" id="dropdown-sort" title="Sort">
       {sortTypes.map((sort, index) => {
         const active = sort === "None";
         return (

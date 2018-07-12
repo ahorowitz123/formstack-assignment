@@ -1,22 +1,30 @@
 import React from "react";
-import { Grid, Row } from "react-bootstrap";
+import { Grid, Row, Col, PageHeader } from "react-bootstrap";
 
 import "./App.css";
 import ItemListContainer from "../../containers/ItemListContainer";
-import AddTodoContainer from "../../containers/AddTodoContainer";
+import AddItemContainer from "../../containers/AddItemContainer";
 import SortContainer from "../../containers/SortContainer";
 
 const App = () =>
-  <Grid>
-    <Row>
-      <AddTodoContainer />
-    </Row>
-    <Row>
-      <SortContainer />
-    </Row>
-    <Row>
-      <ItemListContainer />
-    </Row>
-  </Grid>;
+  <div className="App">
+    <Grid>
+      <Row>
+        <PageHeader>Welcome to Adam Horowitz's Form Viewer!</PageHeader>
+      </Row>
+      <Row>
+        <Col className="App-add-item-column" sm={11}>
+          <AddItemContainer />
+        </Col>
+        <Col sm={1}>
+          <SortContainer />
+        </Col>
+      </Row>
+      <hr />
+      <Row>
+        <ItemListContainer />
+      </Row>
+    </Grid>
+  </div>;
 
 export default App;

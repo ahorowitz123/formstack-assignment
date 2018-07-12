@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 
 import { addItem } from "../../redux/Actions";
-import AddTodo from "../../components/AddTodo";
+import AddItem from "../../components/AddItem";
 
 const mapDispatchToProps = dispatch => ({
   handleOnClick: (text, type) => dispatch(addItem(text, type))
 });
 
-const AddTodoContainer = connect(null, mapDispatchToProps)(AddTodo);
+const AddItemContainer = connect(null, mapDispatchToProps)(AddItem);
 
-export default AddTodoContainer;
+export default AddItemContainer;

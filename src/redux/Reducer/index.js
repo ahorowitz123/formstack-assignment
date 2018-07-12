@@ -6,21 +6,21 @@ const initialState: State = {
   items: [
     {
       id: 0,
-      text: "Test1",
+      text: "What is your favorite food?",
       itemType: "Multiple Choice",
-      createdTimestamp: 10
+      createdTimestamp: 1631409479150
     },
     {
       id: 1,
-      text: "Test2",
+      text: "What is your primary language?",
       itemType: "Dropdown",
-      createdTimestamp: 10
+      createdTimestamp: 1531409479150
     },
     {
       id: 2,
-      text: "Test3",
+      text: "How do you feel about the weather today?",
       itemType: "Text Box",
-      createdTimestamp: 10
+      createdTimestamp: 1531409479155
     }
   ],
   selectedId: -1,
