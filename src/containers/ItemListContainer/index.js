@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import type { State } from "../../types";
 import { deleteItem, selectItem } from "../../redux/Actions";
 import ItemList from "../../components/ItemList";
+import getSortedItems from "../../redux/Selectors";
 
 const mapStateToProps = (state: State) => ({
-  items: state.items,
+  items: getSortedItems(state),
   selectedId: state.selectedId
 });
 

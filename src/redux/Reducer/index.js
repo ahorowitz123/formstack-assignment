@@ -23,7 +23,8 @@ const initialState: State = {
       createdTimestamp: 10
     }
   ],
-  selectedId: -1
+  selectedId: -1,
+  sortType: "None"
 };
 
 const reducer = (state: State = initialState, action: Action): State => {
@@ -44,7 +45,7 @@ const reducer = (state: State = initialState, action: Action): State => {
     case "DELETE_ITEM":
       return {
         ...state,
-        items: state.items.filter(item => (item.id !== action.id))
+        items: state.items.filter(item => item.id !== action.id)
       };
     case "SELECT_ITEM":
       return {
@@ -52,54 +53,10 @@ const reducer = (state: State = initialState, action: Action): State => {
         selectedId: action.id
       };
     case "SORT":
-      const sortType = action.sortType;
-      if (sortType === "Text") {
-        return {
-          ...state,
-          items: state.items.slice().sort(function(a, b) {
-            var textA = a.text.toUpperCase();
-            var textB = b.text.toUpperCase();
-            if (textA < textB) {
-              return -1;
-            }
-            if (textA > textB) {
-              return 1;
-            }
-
-            return 0;
-          })
-        };
-      } else if (sortType === "Type") {
-        return {
-          ...state,
-          items: state.items.slice().sort(function(a, b) {
-            var typeA = a.itemType.toUpperCase();
-            var typeB = b.itemType.toUpperCase();
-            if (typeA < typeB) {
-              return -1;
-            }
-            if (typeA > typeB) {
-              return 1;
-            }
-
-            return 0;
-          })
-        };
-      } else if (sortType === "Timestamp") {
-        return {
-          ...state,
-          items: state.items.slice().sort(function(a, b) {
-            return a.createdTimestamp - b.createdTimestamp;
-          })
-        };
-      } else {
-        return {
-          ...state,
-          items: state.items.slice().sort(function(a, b) {
-            return a.id - b.id;
-          })
-        };
-      }
+      return {
+        ...state,
+        sortType: action.sortType
+      };
     default:
       return state;
   }

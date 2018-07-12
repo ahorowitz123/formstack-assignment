@@ -38,7 +38,7 @@ const AddTodo = (props: Props) => {
             text = ref;
           }}
           type="text"
-          placeholder="What is your favorite food?"
+          placeholder="Enter Question Here!"
         />
       </FormGroup>{" "}
       <FormGroup>

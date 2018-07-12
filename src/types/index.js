@@ -22,4 +22,4 @@ export type Item = {
   +createdTimestamp: number
 };
 
-export type State = { +items: Array<Item>, +selectedId: number };
+export type State = { +items: Array<Item>, +selectedId: number, +sortType: SortType };

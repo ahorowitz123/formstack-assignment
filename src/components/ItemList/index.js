@@ -15,7 +15,6 @@ type Props = {
 
 const ItemList = (props: Props) => {
   const { items, handleOnClick, handleOnDeleteClick } = props;
-  console.log(handleOnClick);
 
   return (
     <Table responsive hover>
