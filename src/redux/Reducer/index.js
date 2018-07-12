@@ -8,7 +8,7 @@ const initialState: State = {
       id: 0,
       text: "What is your favorite food?",
       itemType: "Multiple Choice",
-      createdTimestamp: 1631409479150
+      createdTimestamp: 1531409579150
     },
     {
       id: 1,
@@ -20,7 +20,7 @@ const initialState: State = {
       id: 2,
       text: "How do you feel about the weather today?",
       itemType: "Text Box",
-      createdTimestamp: 1531409479155
+      createdTimestamp: 1531409489150
     }
   ],
   selectedId: -1,

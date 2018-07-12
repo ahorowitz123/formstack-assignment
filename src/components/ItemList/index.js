@@ -29,6 +29,7 @@ const ItemList = (props: Props) => {
       <tbody>
         {items.map(item => {
           const className = props.selectedId === item.id ? "selected" : "";
+          const date = new Date(item.createdTimestamp);
           return (
             <tr className={className} key={item.id}>
               <td onClick={() => handleOnClick(item.id)}>
@@ -38,7 +39,7 @@ const ItemList = (props: Props) => {
                 {item.itemType}
               </td>
               <td onClick={() => handleOnClick(item.id)}>
-                {item.createdTimestamp}
+                {date.toLocaleString()}
               </td>
               <td>
                 <Button
