@@ -7,7 +7,7 @@ import type {
   ItemType
 } from "../../types";
 
-let nextId = 0;
+let nextId = 3;
 
 export const addItem = (text: string, itemType: ItemType): AddItemAction => ({
   type: ADD_ITEM,

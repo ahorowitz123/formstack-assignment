@@ -5,19 +5,19 @@ import type { Action, State } from "../../types";
 const initialState: State = {
   items: [
     {
-      id: 1,
+      id: 0,
       text: "Test1",
       itemType: "Multiple Choice",
       createdTimestamp: 10
     },
     {
-      id: 2,
+      id: 1,
       text: "Test2",
       itemType: "Dropdown",
       createdTimestamp: 10
     },
     {
-      id: 3,
+      id: 2,
       text: "Test3",
       itemType: "Text Box",
       createdTimestamp: 10
