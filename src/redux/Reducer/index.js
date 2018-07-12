@@ -45,6 +45,55 @@ const reducer = (state: State = initialState, action: Action): State => {
         ...state,
         items: state.items.filter(item => item.id !== action.id)
       };
+    case "SORT":
+      const sortType = action.sortType;
+      if (sortType === "Text") {
+        return {
+          ...state,
+          items: state.items.slice().sort(function(a, b) {
+            var textA = a.text.toUpperCase();
+            var textB = b.text.toUpperCase();
+            if (textA < textB) {
+              return -1;
+            }
+            if (textA > textB) {
+              return 1;
+            }
+
+            return 0;
+          })
+        };
+      } else if (sortType === "Type") {
+        return {
+          ...state,
+          items: state.items.slice().sort(function(a, b) {
+            var typeA = a.itemType.toUpperCase();
+            var typeB = b.itemType.toUpperCase();
+            if (typeA < typeB) {
+              return -1;
+            }
+            if (typeA > typeB) {
+              return 1;
+            }
+
+            return 0;
+          })
+        };
+      } else if (sortType === "Timestamp") {
+        return {
+          ...state,
+          items: state.items.slice().sort(function(a, b) {
+            return a.createdTimestamp - b.createdTimestamp;
+          })
+        };
+      } else {
+        return {
+          ...state,
+          items: state.items.slice().sort(function(a, b) {
+            return a.id - b.id;
+          })
+        };
+      }
     default:
       return state;
   }
