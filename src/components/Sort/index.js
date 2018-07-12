@@ -8,20 +8,26 @@ type Props = {
   handleOnSelect: (sortType: SortType) => void
 };
 
-const Sort = (props: Props) =>
-  <DropdownButton title="Sort">
-    <MenuItem eventKey="1" active>
-      None
-    </MenuItem>
-    <MenuItem onSelect={() => props.handleOnSelect("Text")} eventKey="2">
-      Text
-    </MenuItem>
-    <MenuItem onSelect={() => props.handleOnSelect("Type")} eventKey="3">
-      Type
-    </MenuItem>
-    <MenuItem onSelect={() => props.handleOnSelect("Timestamp")} eventKey="4">
-      Timestamp
-    </MenuItem>
-  </DropdownButton>;
+const Sort = (props: Props) => {
+  const sortTypes = ["None", "Text", "Type", "Timestamp"];
+  return (
+    <DropdownButton id="dropdown-sort" title="Sort">
+      {sortTypes.map((sort, index) => {
+          const active = (sort === "None");
+          return (
+            <MenuItem
+              key={index}
+              onSelect={() => props.handleOnSelect(sort)}
+              eventKey={index}
+              active={active}
+            >
+              {sort}
+            </MenuItem>
+          )
+        }
+      )}
+    </DropdownButton>
+  );
+};
 
 export default Sort;
