@@ -4,6 +4,7 @@ import * as React from "react";
 import { Table, Button, Glyphicon } from "react-bootstrap";
 
 import type { Item } from "../../types";
+import "./ItemList.css";
 
 type Props = {
   items: Array<Item>,
