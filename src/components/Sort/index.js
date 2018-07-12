@@ -8,6 +8,10 @@ type Props = {
   handleOnSelect: (sortType: SortType) => void
 };
 
+/*
+* Presentational component to display Sort dropdown button.
+* Gets select functionality from container.
+*/
 const Sort = (props: Props) => {
   const sortTypes: Array<SortType> = ["None", "Text", "Type", "Timestamp"];
   return (

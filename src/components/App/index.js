@@ -6,6 +6,9 @@ import ItemListContainer from "../../containers/ItemListContainer";
 import AddItemContainer from "../../containers/AddItemContainer";
 import SortContainer from "../../containers/SortContainer";
 
+/*
+* Presentational component to display entire App.
+*/
 const App = () =>
   <div className="App">
     <Grid>

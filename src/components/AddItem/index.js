@@ -13,13 +13,28 @@ import {
 import type { ItemType } from "../../types";
 
 type Props = {
+  /* function to add item to list */
   handleOnClick: (text: string, type: ItemType) => void
 };
 
+/*
+* Presentational component to display an Add Item form.
+* Requires text and a type of item. Calls handleOnClick function
+* given by container component.
+*/
 const AddItem = (props: Props) => {
+  /*
+  * Variables to grab elements from form for values.
+  * This is a work around to pass flow validation rather than
+  * assigning to instance variables.
+  */
   let text: HTMLInputElement;
   let type: HTMLSelectElement;
 
+  /*
+  * Function to allow flow to properly accept value of select
+  * as ItemType.
+  */
   const getType = (value: string): ItemType => {
     if (value === "Multiple Choice") {
       return "Multiple Choice";

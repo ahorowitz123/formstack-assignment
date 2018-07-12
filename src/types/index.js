@@ -2,6 +2,8 @@
 
 export type ItemType = "Multiple Choice" | "Dropdown" | "Text Box";
 export type SortType = "None" | "Text" | "Type" | "Timestamp";
+export type ItemStringField = "text" | "itemType";
+export type ItemNumField = "id" | "createdTimestamp";
 
 export type AddItemAction = {|
   type: "ADD_ITEM",

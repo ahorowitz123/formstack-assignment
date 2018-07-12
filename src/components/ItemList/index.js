@@ -7,12 +7,21 @@ import type { Item } from "../../types";
 import "./ItemList.css";
 
 type Props = {
+  /* Array of items */
   items: Array<Item>,
+  /* ID of selected item */
   selectedId: number,
+  /* function to execute when item is clicked */
   handleOnClick: (itemNum: number) => void,
+  /* function to execute when delete button is clicked */
   handleOnDeleteClick: (itemNum: number) => void
 };
 
+/*
+* Presentational component to display Item List.
+* Gets list of items, selected item, item click functionality,
+* and delete item functionality from container.
+*/
 const ItemList = (props: Props) => {
   const { items, handleOnClick, handleOnDeleteClick } = props;
 

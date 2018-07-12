@@ -2,6 +2,7 @@
 
 import type { Action, State } from "../../types";
 
+/* Initial state of store. Made immutable by flow State type */
 const initialState: State = {
   items: [
     {
@@ -27,6 +28,8 @@ const initialState: State = {
   sortType: "None"
 };
 
+/* Main reducer. Kept them in the same reducer since there are only 4. Otherwise,
+would have put SORT in own reducer and combined */
 const reducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case "ADD_ITEM":
