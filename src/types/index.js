@@ -1,16 +1,20 @@
 // @flow
 
+import ITEM_TYPES from "../constants/itemTypes";
+import ACTIONS from "../constants/actions";
+import SORT_TYPES from "../constants/sortTypes";
+
 /* Item String Types */
-export type ItemType = "Multiple Choice" | "Dropdown" | "Text Box";
+export type ItemType = $Keys<typeof ITEM_TYPES>;
 export type ItemStringField = "text" | "itemType";
 export type ItemNumField = "id" | "createdTimestamp";
 
 /* Sort String Types */
-export type SortType = "None" | "Text" | "Type" | "Timestamp";
+export type SortType = $Keys<typeof SORT_TYPES>;
 
 /* Action Types */
 export type AddItemAction = {|
-  type: "ADD_ITEM",
+  type: ACTIONS.ADD_ITEM,
   id: number,
   text: string,
   itemType: ItemType

@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Table, Button, Glyphicon } from "react-bootstrap";
 
-import type { Item } from "../../types";
+import type { Item, ItemType } from "../../types";
 import "./ItemList.css";
 
 type Props = {
@@ -25,6 +25,13 @@ type Props = {
 const ItemList = (props: Props) => {
   const { items, handleOnClick, handleOnDeleteClick } = props;
 
+  const toTitleCase = (str: ItemType): string => {
+    const newStr = str.replace("_", " ");
+    return newStr.replace(/\w\S*/g, (txt) => {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
   return (
     <Table responsive hover>
       <thead>
@@ -45,7 +52,7 @@ const ItemList = (props: Props) => {
                 {item.text}
               </td>
               <td onClick={() => handleOnClick(item.id)}>
-                {item.itemType}
+                {toTitleCase(item.itemType)}
               </td>
               <td onClick={() => handleOnClick(item.id)}>
                 {date.toLocaleString()}

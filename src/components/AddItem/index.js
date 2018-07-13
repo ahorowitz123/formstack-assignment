@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 
 import type { ItemType } from "../../types";
+import ITEM_TYPES from "../../constants/itemTypes";
 
 type Props = {
   /* function to add item to list */
@@ -30,20 +31,6 @@ const AddItem = (props: Props) => {
   */
   let text: HTMLInputElement;
   let type: HTMLSelectElement;
-
-  /*
-  * Function to allow flow to properly accept value of select
-  * as ItemType.
-  */
-  const getType = (value: string): ItemType => {
-    if (value === "Multiple Choice") {
-      return "Multiple Choice";
-    } else if (value === "Dropdown") {
-      return "Dropdown";
-    } else {
-      return "Text Box";
-    }
-  };
 
   return (
     <Form inline>
@@ -67,15 +54,15 @@ const AddItem = (props: Props) => {
           componentClass="select"
           placeholder="Multiple Choice"
         >
-          <option value="Multiple Choice">Multiple Choice</option>
-          <option value="Dropdown">Dropdown</option>
-          <option value="Text Box">Text Box</option>
+          <option value={ITEM_TYPES.MULTIPLE_CHOICE}>Multiple Choice</option>
+          <option value={ITEM_TYPES.DROPDOWN}>Dropdown</option>
+          <option value={ITEM_TYPES.TEXT_BOX}>Text Box</option>
         </FormControl>
       </FormGroup>{" "}
       <Button
         bsStyle="primary"
         onClick={() => {
-          props.handleOnClick(text.value, getType(type.value));
+          props.handleOnClick(text.value, type.value);
           text.value = "";
         }}
       >

@@ -9,6 +9,7 @@ import type {
   ItemStringField,
   ItemNumField
 } from "../../types";
+import SORT_TYPES from "../../constants/sortTypes";
 
 
 /* Selector functions to be used in createSelector */
@@ -44,13 +45,13 @@ const getSortedItems = createSelector(
   [getSortType, getItemList],
   (sortType: SortType, items: Array<Item>): Array<Item> => {
     switch (sortType) {
-      case "None":
+      case SORT_TYPES.NONE:
         return items.slice().sort(sortNum("id"));
-      case "Text":
+      case SORT_TYPES.TEXT:
         return items.slice().sort(sortText("text"));
-      case "Type":
+      case SORT_TYPES.TYPE:
         return items.slice().sort(sortText("itemType"));
-      case "Timestamp":
+      case SORT_TYPES.TIMESTAMP:
         return items.slice().sort(sortNum("createdTimestamp"));
       default:
         return items;

@@ -1,0 +1,7 @@
+const ITEM_TYPES = {
+  MULTIPLE_CHOICE: "MULTIPLE_CHOICE",
+  DROPDOWN: "DROPDOWN",
+  TEXT_BOX: "TEXT_BOX",
+}
+
+export default ITEM_TYPES;

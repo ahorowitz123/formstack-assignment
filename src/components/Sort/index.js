@@ -13,7 +13,7 @@ type Props = {
 * Gets select functionality from container.
 */
 const Sort = (props: Props) => {
-  const sortTypes: Array<SortType> = ["None", "Text", "Type", "Timestamp"];
+  const sortTypes: Array<string> = ["None", "Text", "Type", "Timestamp"];
   return (
     <DropdownButton bsStyle="success" id="dropdown-sort" title="Sort">
       {sortTypes.map((sort, index) => {
@@ -21,7 +21,7 @@ const Sort = (props: Props) => {
         return (
           <MenuItem
             key={index}
-            onSelect={() => props.handleOnSelect(sort)}
+            onSelect={() => props.handleOnSelect(sort.toUpperCase())}
             eventKey={index}
             active={active}
           >
