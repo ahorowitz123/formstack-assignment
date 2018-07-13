@@ -3,7 +3,7 @@
 import type { Action, State } from "../../types";
 
 /* Initial state of store. Made immutable by flow State type */
-const initialState: State = {
+export const initialState: State = {
   items: [
     {
       id: 0,
